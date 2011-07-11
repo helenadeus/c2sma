@@ -1,0 +1,105 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>C2SMA - Cancer Chemoprevention and Small Molecule Annotator</title> 
+	<!-- chemwriter -->
+	<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7, IE=9">
+    <link rel=stylesheet href="chemwriter/css/chemwriter.css" type="text/css" media=screen />
+    <link rel=stylesheet href="chemwriter/css/chemwriter-skin.css" type="text/css" media=screen />
+    <script src="chemwriter/js/chemwriter.js"></script>
+	<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.13.custom.min.js"></script>
+	
+	<link rel="stylesheet" href="../jquery.mobile/jquery.mobile-1.0b1.css" />
+	
+	<script type="text/javascript" src="../jquery.mobile/jquery.mobile-1.0b1.js"></script>
+	
+	<script type="text/javascript" src="js/c2sma.js"></script>
+
+	
+</head> 
+
+
+<style type="text/css">
+.chems {
+	width: 100px
+}
+</style>
+<body>
+<div data-role="page" id="main">
+
+	<div data-role="header" data-theme="b">
+		<h1>C2SMA - Cancer Chemoprevention and Small Molecule Annotator</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<ul data-inset="true" data-role="listview" class="ui-listview ui-listview-inset ui-corner-all ui-shadow">
+		<li data-role="list-divider" role="heading" class="ui-li ui-li-divider ui-btn ui-bar-b ui-corner-top ui-btn-up-undefined">
+			Welcome to C2SMA: your entry point for the discovery of new cancer chemoprevention molecules
+		</li>
+		<li data-theme="c" >
+			<a href="#findbyname">
+				<h3>Find by a List of Names</h3>
+			</a>
+		</li>
+		<li data-theme="c" >
+			<a href="#findbyproperty">
+				<h3>Find by Property, Structure or Image</h3>
+			</a>
+		</li>
+		<li data-theme="c" >
+			<a href="#findbyclass">
+				<h3>Find by Disease, Source or Application</h3>
+			</a>
+		</li>
+		<li><a href="#findbyclass">
+			<h3>Browse Data</h3>
+		</a></li>
+		<li><a href="#submit">
+			<h3>Submit Data</h3>
+		</a></li>
+	</div><!-- /content -->
+
+	<div data-role="footer" data-theme="b" class="ui-bar">
+		<a href="#main" data-icon="home">Home</a>
+	</div><!-- /footer -->
+</div>
+<div data-role="page" id="findbyname">
+
+	<div data-role="header" data-theme="b">
+		<h1>C2SMA - Cancer Chemoprevention and Small Molecule Annotator</h1>
+	</div><!-- /header -->
+
+	<div data-role="content">	
+		<div class="ui-grid-b">
+			<div class="ui-block-a">
+				<form action="#querymultiple">
+					<fieldset>
+						<label for="chems">Paste a list of compounds here</label>
+							<textarea id="chems">Acetophenone
+Acetylcysteine
+Adenosine
+Ajoene</textarea><br />
+						<button type="button" id="submitList" onClick="parseChem($('#chems').val())" data-theme="b">Submit</button>	
+					</fieldset>
+				</form>
+
+			</div>
+			<div class="ui-block-b">
+				<span style="display:none">Is this what you were looking for?</span>
+				
+				<ul data-role="listview" id="chemical_struc_ul">
+					
+				</ul>
+			</div>
+			
+		</div><!-- /grid-a -->
+	</div><!-- /content -->
+
+	<div data-role="footer" data-theme="b">
+		<a href="index.html" data-icon="refresh">Clear all
+	</div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html>
